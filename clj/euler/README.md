@@ -1,0 +1,1 @@
+## Solving project euler tasks
