@@ -19,3 +19,9 @@
 				))]
 		(= 0 (parentheses s 0))))
 
+
+(defn count-change [money coins] 
+	(cond 
+		(= 0 money) 1
+		(or (< money 0) (not (seq coins))) 0
+		:else (+ (count-change (- money (first coins)) coins) (count-change money (rest coins)))))

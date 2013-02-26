@@ -21,3 +21,13 @@
 		(is (not (balance? ":-)"))))
 	(testing "Counting is not enough"
 		(is (not (balance? "())(")))))
+
+(deftest count-change-test
+	(testing "manual"
+		(is (= 3 (count-change 4 '(1 2)))))
+	(testing "sorted CHF"
+		(is (= 1022 (count-change 300 '(5 10 20 50 100 200 500)))))
+	(testing "no pennies"
+		(is (= 0 (count-change 301 '(5 10 20 50 100 200 500)))))
+	(testing "unsorted CHF"
+		(is (= 1022 (count-change 300 '(500 5 50 100 20 200 10))))))
