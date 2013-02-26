@@ -1,6 +1,7 @@
 (ns euler.second)
 
-(defn gen-fibs [a b] (cons a (lazy-seq (gen-fibs b (+ a b)))))
+;(defn gen-fibs [a b] (cons a (lazy-seq (gen-fibs b (+ a b))))
+(defn gen-fibs [a b] (lazy-seq (cons a (gen-fibs b (+ a b)))))
 
 (def fibs (gen-fibs 1 1))
 
