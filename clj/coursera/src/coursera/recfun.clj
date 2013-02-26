@@ -1,7 +1,7 @@
 (ns coursera.recfun)
 
 (defn pascal [c r] 
-	(if (or (= 0 c) (= c r)) 1 (+ (pascal (dec c) (dec r)) (pascal c (dec r)))))
+	(if (or (zero? c) (= c r)) 1 (+ (pascal (dec c) (dec r)) (pascal c (dec r)))))
 
 ; need to balance parentheses in sublime 
 (def lb \()
@@ -23,5 +23,5 @@
 (defn count-change [money coins] 
 	(cond 
 		(= 0 money) 1
-		(or (< money 0) (not (seq coins))) 0
+		(or (neg? money) (not (seq coins))) 0
 		:else (+ (count-change (- money (first coins)) coins) (count-change money (rest coins)))))
